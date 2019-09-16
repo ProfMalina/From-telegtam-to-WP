@@ -12,6 +12,7 @@ import re
 
 api_id = API_ID_FROM_TELEGA
 api_hash = 'API_HASH_FROM_TELEGA'
+CHAT_NAME = 'CHAT_NAME'
 client = TelegramClient('NAME_SESSION', api_id, api_hash)
 
 wp = Client('https://PATH/TO/xmlrpc.php', 'LOGIN', 'PASS')
@@ -90,7 +91,7 @@ def scale_image(input_image_path,
           'high'.format(wide=width, height=height))
 
 
-@client.on(events.NewMessage(chats='news_for_wp2'))
+@client.on(events.NewMessage(chats='CHAT_NAME'))
 async def normal_handler(event):
     post = WordPressPost()
     msg = event.message.to_dict()
